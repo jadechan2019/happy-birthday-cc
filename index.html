@@ -126,6 +126,17 @@
     </div>
   </div>
   <audio id="birthday-music" src="bgm.mp3" loop="loop" preload="auto"></audio>
+  <script>
+    // 监听用户的第一次点击事件
+    document.addEventListener('click', function playMusic() {
+        var music = document.getElementById('birthday-music');
+        if (music.paused) {
+            music.play();
+        }
+        // 播放后移除监听，避免每次点击都重复执行
+        document.removeEventListener('click', playMusic);
+    });
+</script>
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
